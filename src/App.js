@@ -22,22 +22,13 @@ import { MuiNavbar } from './componentes/MuiNavbar';
 
 function App() {
 
-
-
   return  (
     
     <Routes>
 
-    
-    
-      
-      
       <Route path="/" element={<HomeView />} />      
       <Route path="/reserva" element={<ReservaView />} />      
-      
-   
-    
-  
+
     </Routes>
   )
   
