@@ -1,6 +1,9 @@
 import { Button, Stack, Box } from "@mui/material"
 
 
+
+
+
 const accionBtn =()=>{
     console.log("Registro");
 };

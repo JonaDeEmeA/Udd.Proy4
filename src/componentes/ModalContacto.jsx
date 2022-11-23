@@ -22,7 +22,7 @@ const styleModal ={
 
 
 
-export  const ModalReg=() =>{
+export  const ModalContacto=() =>{
   const [open, setOpen] = useState(false);
   
   const handleClickOpen = () => {
@@ -35,9 +35,9 @@ export  const ModalReg=() =>{
   };
 
   return (
-    <div>
+    <>
         
-      <BtnGeneral nombreBtn="Registrar" accion={handleClickOpen} />
+      <BtnGeneral nombreBtn="Contacto" accion={handleClickOpen} />
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Subscribe</DialogTitle>
         <DialogContent>
@@ -88,7 +88,7 @@ export  const ModalReg=() =>{
           <Button onClick={handleClose}>Registrar</Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 }
 

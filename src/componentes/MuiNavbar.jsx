@@ -1,16 +1,20 @@
-import  DiningIcon  from "@mui/icons-material/Dining";
-import { AppBar,Toolbar, IconButton, Typography, Stack, Button } from "@mui/material"
+import DiningIcon from "@mui/icons-material/Dining";
+import { AppBar, Toolbar, IconButton, Typography, Stack, Button } from "@mui/material"
+
+import {MuiMenu } from "./MuiMenu"
 
 
-export const MuiNavbar =()=>{
+export const MuiNavbar = () => {
 
-    return(
+    return (
         <AppBar position="static" color="secondary" >
+            
             <Toolbar >
-                <IconButton size="large"  color="inherit" aria-label="logo" >
+                <MuiMenu />
+                <IconButton size="large" color="inherit" aria-label="logo" >
                     <DiningIcon />
                 </IconButton>
-                <Typography variant="h6" component="div" sx={{flexGrow : 1}}>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     NOMBRE PROY
                 </Typography>
                 {/* <Stack direction="row" spacing={2} >

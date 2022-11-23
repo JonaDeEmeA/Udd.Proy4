@@ -1,58 +1,94 @@
 
 import { BtnGeneral } from "../componentes/BtnGeneral";
-import { ModalReg } from "../componentes/ModalReg";
-import { ModalIngreso } from "../componentes/ModalIngreso";
+import { ModalContacto } from "../componentes/ModalContacto";
+import { TabMenu } from "../componentes/TabMenu";
 import { MuiNavbar } from "../componentes/MuiNavbar";
 
-import { Stack, Box, Container,Typography } from "@mui/material";
+import { Stack, Box, Container, Typography, Grid } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { height } from "@mui/system";
 
 
 
-const style ={
-	imgCarta:{
-		width: "300px",
-		borderRadius: "10px"
+const style = {
+	imgCarta: {
+
+		width: "95%",
+		maxHeight: "500px",
+		borderRadius: "10px 10px 0 0",
+
+
+
+
 	},
 
 };
 
+export const HomeView = (props) => {
 
-export const HomeView = () => {
+	const navegar = useNavigate();
 
-	const imprimirReserva = ()=>{
-		console.log("testReserva");
+	const imprimirReserva = () => {
+		navegar("/reserva");
 	}
 
+	//sx={{my: {xs:"15%", lg:"50%"}}}
 	return (
-		<main>
-			
-			{/* <MuiNavbar /> */}
+		<>
+			<Box sx={{ bgcolor: "rgb(236, 234, 234)", height: "100vh" }}>
+				<MuiNavbar />
 
-				<Container maxWidth="sm" align="center" sx={{
-					paddingTop: 10,
-					marginBottom: 12,
+				<Grid
+					container
+					justifyContent="center"
+					alignContent="center"
+					sx={{ height: "93%" }}
+					component="main"   >
 
-				}}>
-					<Typography variant="h5" align="center" color="textPrimary" gutterBottom >
-						Restaurant 777
-					</Typography>
-					
-					<img src="https://www.astarteinformatica.com/blog/wp-content/uploads/2018/09/como-elaborar-una-carta-restaurante.jpg" alt="cartamenu" style={style.imgCarta} />
-					<Typography variant="overline" align="center" color="textSecondary" paragraph >
-						Ya provaste nuestra nueva carta con las especialidades de coleccion!? No te la pierdas!!
-					</Typography>
-					<BtnGeneral nombreBtn="Reserva" accion={imprimirReserva} />
-				</Container>
-			
+					<Grid item
+						textAlign="center"
+						xs={10} md={6}>
+						<Box  sx={{
+							bgcolor: "error.light",
+							borderRadius: { xs: "20px 20px 0 0  ", md: "20px 0 0 20px" },
+							height: { xs: "370px", md: "70vh" }
+						}}>
 
-			<Stack spacing={2} component="section"  >
+							<Typography pt={5} variant="h4" color="textPrimary" >
+								Restaurant 777
+							</Typography>
 
-				<ModalReg />
-				<ModalIngreso />
-			</Stack>
+							<Box sx={{ pt: 5 }}>
+								<img src="https://www.astarteinformatica.com/blog/wp-content/uploads/2018/09/como-elaborar-una-carta-restaurante.jpg" alt="cartamenu" style={style.imgCarta} />
+							</Box>
+						</Box>
+					</Grid>
+
+					<Grid gap={2} item container direction="column" justifyContent="center"
+						pt={1}
+						xs={10} md={4}
+						sx={{
+							bgcolor: "error.light",
+							borderRadius: { xs: "0 0 20px 20px ", md: "0 20px 20px 0 " }
+						}} >
+
+						<Typography variant="overline" color="primaryChannel" textAlign="center" paragraph >
+							Ya provaste nuestra nueva carta con las especialidades de coleccion!? No te la pierdas!!
+						</Typography>
+
+						<BtnGeneral nombreBtn="Reserva" accion={imprimirReserva} />
+						<br />
+						<ModalContacto />
+						<br />
+					</Grid>
+
+				</Grid>
+			</Box>
 
 
-		</main>
+
+
+		</>
 
 
 

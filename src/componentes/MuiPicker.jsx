@@ -13,13 +13,18 @@ export const MuiPicker = () => {
 
 	return (
 
-		<Grid container justifyContent="center" spacing={2} marginTop={1} >
-
-		  <Grid item>
+		<Grid container justifyContent="center"   >
+			<Box sx={{
+				px:2, pb:2,
+				borderRadius: "0 0 20px 20px" ,
+				bgcolor: "error.light",
+				width:{xs:"70%",sm:"45%", md:"40%", xl:"35%" }}}>
+			<Grid container justifyContent= 'space-between'>
+		  <Grid item xs={5.5} >
 			<DatePicker
-				
+				sx={{ width:"100%"}}
 				label="Fecha "
-				renderInput={(params) => <TextField {...params} />}
+				renderInput={(params) => <TextField {...params}  />}
 				value={selectedDate}
 				onChange={(newValue) => {
 					setSelectedDate(newValue)
@@ -28,8 +33,9 @@ export const MuiPicker = () => {
 			</Grid>	
 			
 
-			<Grid item>
+			<Grid item xs={5.5}>
 			<TimePicker
+				sx={{ width:"100%"}} 
 				label="Hora"
 				renderInput={(params) => <TextField {...params} />}
 				value={selectedTime}
@@ -38,6 +44,8 @@ export const MuiPicker = () => {
 				}}
 			/>
 			</Grid>
+			</Grid>	
+			</Box>
 		</Grid>
 
 	);
