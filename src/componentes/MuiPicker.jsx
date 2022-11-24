@@ -17,7 +17,7 @@ export const MuiPicker = () => {
 			<Box sx={{
 				px:2, pb:2,
 				borderRadius: "0 0 20px 20px" ,
-				bgcolor: "error.light",
+				bgcolor: "grey.A200",
 				width:{xs:"70%",sm:"45%", md:"40%", xl:"35%" }}}>
 			<Grid container justifyContent= 'space-between'>
 		  <Grid item xs={5.5} >

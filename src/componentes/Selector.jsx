@@ -17,12 +17,12 @@ export const Selector = () => {
     <Grid container justifyContent="center" >
       <Box sx={{ 
         px:2,
-        bgcolor: "success.light", width: { xs:"70%",sm:"45%", md:"40%", xl:"35%" } }}>
+        bgcolor: "grey.A200", width: { xs:"70%",sm:"45%", md:"40%", xl:"35%" } }}>
         <Grid container spacing={2} justifyContent= 'space-between'>
         <Grid item xs={5.5} >
           <FormControl fullWidth >
-            <InputLabel id="select-label">Mesa</InputLabel>
-            <Select
+            <InputLabel id="select-label" >Mesa</InputLabel>
+            <Select 
               labelId="demo-simple-select-helper-label"
               id="demo-simple-select-helper"
               value={mesa}

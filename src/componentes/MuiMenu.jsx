@@ -3,11 +3,13 @@ import { Button, IconButton, Menu, MenuItem, Typography, Grid } from "@mui/mater
 import MenuIcon from "@mui/icons-material/Menu";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 
 
 export const MuiMenu = () => {
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -17,10 +19,16 @@ export const MuiMenu = () => {
     setAnchorEl(null);
   };
 
+  const navegar = useNavigate();
+
+	const goHome = () => {
+		navegar("/");
+	}
+
   return (
 
     <div>
-      <Button
+      <Button sx={{display:{md:"none"}}}
         color="inherit"
         size="small"
         id="basic-button"
@@ -40,9 +48,9 @@ export const MuiMenu = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={goHome}>Inicio</MenuItem>
+        <MenuItem onClick={handleClose}>Ingresar</MenuItem>
+        <MenuItem onClick={handleClose}>Registrar</MenuItem>
       </Menu>
     </div>
   );

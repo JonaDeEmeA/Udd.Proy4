@@ -18,7 +18,7 @@ export const BtnGeneral = ({nombreBtn, accion})=>{
         }}>
         <Stack spacing={2} sx={{ alignItems:"center", justifyContent: "space-between"}} >
                 
-            <Button  onClick={accion} variant="contained">{nombreBtn}</Button>
+            <Button color="error" onClick={accion} variant="contained">{nombreBtn}</Button>
             
         </Stack>
         </Box>

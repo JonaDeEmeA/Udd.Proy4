@@ -1,12 +1,12 @@
 
 import { BtnGeneral } from "../componentes/BtnGeneral";
 import { ModalContacto } from "../componentes/ModalContacto";
-import { TabMenu } from "../componentes/TabMenu";
 import { MuiNavbar } from "../componentes/MuiNavbar";
+import {Footer} from "../componentes/Footer"
 
-import { Stack, Box, Container, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { height } from "@mui/system";
+
 
 
 
@@ -16,10 +16,6 @@ const style = {
 		width: "95%",
 		maxHeight: "500px",
 		borderRadius: "10px 10px 0 0",
-
-
-
-
 	},
 
 };
@@ -35,7 +31,7 @@ export const HomeView = (props) => {
 	//sx={{my: {xs:"15%", lg:"50%"}}}
 	return (
 		<>
-			<Box sx={{ bgcolor: "rgb(236, 234, 234)", height: "100vh" }}>
+			<Box sx={{ height: "94vh" }}>
 				<MuiNavbar />
 
 				<Grid
@@ -49,7 +45,7 @@ export const HomeView = (props) => {
 						textAlign="center"
 						xs={10} md={6}>
 						<Box  sx={{
-							bgcolor: "error.light",
+							bgcolor: "grey.A200",
 							borderRadius: { xs: "20px 20px 0 0  ", md: "20px 0 0 20px" },
 							height: { xs: "370px", md: "70vh" }
 						}}>
@@ -68,7 +64,7 @@ export const HomeView = (props) => {
 						pt={1}
 						xs={10} md={4}
 						sx={{
-							bgcolor: "error.light",
+							bgcolor: "grey.A200",
 							borderRadius: { xs: "0 0 20px 20px ", md: "0 20px 20px 0 " }
 						}} >
 
@@ -81,10 +77,11 @@ export const HomeView = (props) => {
 						<ModalContacto />
 						<br />
 					</Grid>
-
 				</Grid>
+				<Footer />
+				
 			</Box>
-
+			
 
 
 
