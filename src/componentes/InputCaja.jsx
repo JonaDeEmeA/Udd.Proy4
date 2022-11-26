@@ -2,7 +2,7 @@ import { Container, Grid, TextField } from "@mui/material";
 
 
 
-export const InputCaja = ({id, label}) => {
+export const InputCaja = ({id, label, name, accion}) => {
 
 
 	return (
@@ -11,6 +11,8 @@ export const InputCaja = ({id, label}) => {
 			
 			id={id}
 			label={label}
+			name={name}
+			onChange={accion}
 			fullWidth
 			variant="outlined"
 		/>

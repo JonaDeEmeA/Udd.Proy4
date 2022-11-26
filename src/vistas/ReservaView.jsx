@@ -5,9 +5,12 @@ import { BtnGeneral } from "../componentes/BtnGeneral";
 import { MuiNavbar } from "../componentes/MuiNavbar";
 import {Footer} from "../componentes/Footer"
 
+import {addDoc, collection} from "firebase/firestore"
+
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import {  Grid, Box, Typography,IconButton } from "@mui/material";
+import { useState } from "react";
 
 
 
@@ -15,6 +18,37 @@ import {  Grid, Box, Typography,IconButton } from "@mui/material";
 
 
 export const ReservaView = () => {
+
+	const [reserva, setReserva] = useState({})
+	
+
+	
+
+	
+	// 	const objReserva = {
+	// 		nombre: reserva.nombre,
+	// 		apellido: reserva.apellido,
+	// 		mail: reserva.mail,
+	// 		fecha:"",
+	// 		hora:""
+	
+	
+	// 	};
+	// 	console.log(objReserva);
+	
+
+	// props.setDataTime(objReserva);
+	const saveReserva=()=>{
+		console.log(reserva);
+	}
+
+	 const handleInput =(e)=>{
+
+	
+	 setReserva({...reserva,
+	[e.target.name]: e.target.value});
+
+	 };
 
 	return (
 
@@ -34,30 +68,34 @@ export const ReservaView = () => {
 			</Grid>
 
 			<Grid item xs={12}  marginBottom={1}>
-				<InputCaja  id="nombre" label="Nombre" />
+				<InputCaja  id="nombre" name="nombre" label="Nombre" accion={(e) => handleInput(e)} />
 			</Grid >
 			<Grid item xs={12}  marginBottom={1}>
-				<InputCaja id="apellido" label="Apellido" />
+				<InputCaja id="apellido" name="apellido" label="Apellido" accion={(e) => handleInput(e)}  />
 			</Grid >
 			<Grid item xs={12} marginBottom={2}>
-				<InputCaja id="mail" label="Email" />
+				
+				<InputCaja id="mail" name="mail" label="Email" accion={(e) => handleInput(e)} />
+			</Grid >
+			<Grid item xs={12} marginBottom={2}>
+				<InputCaja id="personas" name="personas" label="Cantidad personas" accion={(e) => handleInput(e)}  />
 			</Grid >
 		
 			</Box>
 			</Grid>
 			
 			
-				<Selector />
+				{/* <Selector /> */}
 				
 
 			<LocalizationProvider dateAdapter={AdapterDateFns}>
-				<Grid item xs={5}>
+				<Grid item >
 					<MuiPicker />
 				</Grid>
 			</LocalizationProvider>
 
 			<Grid item xs={7} marginTop={6}>
-				<BtnGeneral nombreBtn="Confirmar"/>
+				<BtnGeneral nombreBtn="Confirmar" accion={saveReserva}/>
 			</Grid>
 
 		

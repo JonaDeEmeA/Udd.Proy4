@@ -15,7 +15,7 @@ const style = {
 
 		width: "95%",
 		maxHeight: "500px",
-		borderRadius: "10px 10px 0 0",
+		borderRadius: "10px 10px 10px 10px",
 	},
 
 };
