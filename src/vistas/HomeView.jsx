@@ -1,6 +1,6 @@
 
 import { BtnGeneral } from "../componentes/BtnGeneral";
-import { ModalContacto } from "../componentes/ModalContacto";
+
 import { MuiNavbar } from "../componentes/MuiNavbar";
 import {Footer} from "../componentes/Footer"
 
@@ -13,8 +13,8 @@ import { useNavigate } from "react-router-dom";
 const style = {
 	imgCarta: {
 
-		width: "95%",
-		maxHeight: "500px",
+		maxWidth: "95%",
+		maxHeight: "450px",
 		borderRadius: "10px 10px 10px 10px",
 	},
 
@@ -54,13 +54,13 @@ export const HomeView = (props) => {
 								Restaurant 777
 							</Typography>
 
-							<Box sx={{ pt: 5 }}>
+							<Box sx={{ pt: 4 }}>
 								<img src="https://www.astarteinformatica.com/blog/wp-content/uploads/2018/09/como-elaborar-una-carta-restaurante.jpg" alt="cartamenu" style={style.imgCarta} />
 							</Box>
 						</Box>
 					</Grid>
 
-					<Grid gap={2} item container direction="column" justifyContent="center"
+					<Grid gap={2} item container direction="column" justifyContent="center" alignItems="center"
 						pt={1}
 						xs={10} md={4}
 						sx={{
@@ -68,14 +68,13 @@ export const HomeView = (props) => {
 							borderRadius: { xs: "0 0 20px 20px ", md: "0 20px 20px 0 " }
 						}} >
 
-						<Typography variant="overline" color="primaryChannel" textAlign="center" paragraph >
+						<Typography sx={{width:{xs:"300px", lg:"400px", xl:"500px"}}} variant="h6" color="primaryChannel" textAlign="center" paragraph >
 							Ya provaste nuestra nueva carta con las especialidades de coleccion!? No te la pierdas!!
 						</Typography>
 
-						<BtnGeneral nombreBtn="Reserva" accion={imprimirReserva} />
+						<BtnGeneral  nombreBtn="Reserva Ya!" accion={imprimirReserva} />
 						<br />
-						<ModalContacto />
-						<br />
+						
 					</Grid>
 				</Grid>
 				<Footer />
