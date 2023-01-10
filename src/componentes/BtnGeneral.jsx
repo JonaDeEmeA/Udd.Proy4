@@ -16,7 +16,7 @@ export const BtnGeneral = ({nombreBtn, accion})=>{
             
             alignItems:"center"
         }}>
-        <Stack spacing={2} sx={{ alignItems:"center", justifyContent: "space-between"}} >
+        <Stack spacing={2} sx={{  justifyContent: "space-between"}} >
                 
             <Button sx={{bgcolor: "error.dark"}} color="secondary" onClick={accion} variant="contained">{nombreBtn}</Button>
             

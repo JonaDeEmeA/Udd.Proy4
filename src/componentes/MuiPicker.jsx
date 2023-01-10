@@ -1,30 +1,85 @@
 import { Grid, Box,  Stack, TextField } from "@mui/material"
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { format } from 'date-fns'
 
 
 
-export const MuiPicker = () => {
+
+export const MuiPicker = (props) => {
 
 
 
 	const [selectedDate, setSelectedDate] = useState(null);
 	const [selectedTime, setSelectedTime] = useState(null);
+
+	
+	
 	
 
-		let formatDate = format(new Date(selectedDate), 'dd/MM/yyyy');
-		//console.log(formatDate);
-		
+	useEffect(()=>{
+		console.log(props.isClicked);
+		setSelectedDate(null);
+		setSelectedTime(null);
+	},[props.isClicked])
 
-		let formatHour = format(new Date(selectedTime), 'HH:mm:ss');
-		//console.log(formatHour);
+	
+	
+	//console.log(selectedDate);
+	const handlerFormDate=(values)=>{
 		
+		
+		
+		let formatDate = format(new Date(values), 'dd/MM/yyyy');
+		
+		setSelectedDate(values);
+		
+		props.handledate(currentvalue=>{
+			
+			return {
+				...currentvalue,
+				
+				fechaReserva: formatDate
+			};
+		});
+		
+		
+		
+	};
+	
+
+	
+		
+	 
+	
+
+	
+
+
+	const handlerFormHour=(values)=>{
+		
+		
+		let formatHour = format(new Date(values), 'HH:mm a');
+		
+		setSelectedTime(values);
+		
+		props.handledate(currentvalue=>{
+			return {
+				...currentvalue,
+				
+				horaReserva: formatHour
+			};
+		});
+		
+	};
+		
+	
 
 	return (
 
 		<Grid container justifyContent="center"   >
+			
 			<Box  sx={{
 				px:2, pb:2,
 				borderRadius: "0 0 20px 20px" ,
@@ -37,10 +92,10 @@ export const MuiPicker = () => {
 				label="Fecha "
 				inputFormat='dd/MM/yyyy'
 				renderInput={(params) => <TextField sx={{ width:"100%"}} {...params}  />}
-				value={selectedDate}
-				onChange={(newValue) => {
-					setSelectedDate(newValue)
-				}}
+				
+				value={selectedDate}	
+				onChange={handlerFormDate}
+			
 			/>
 			</Grid>	
 			
@@ -50,10 +105,9 @@ export const MuiPicker = () => {
 				sx={{ width:"100%"}} 
 				label="Hora"
 				renderInput={(params) => <TextField sx={{ width:"100%"}} {...params} />}
+				name="horaReserva"
 				value={selectedTime}
-				onChange={(newValue) => {
-					setSelectedTime(newValue)
-				}}
+				onChange={handlerFormHour}
 			/>
 			</Grid>
 			</Grid>	
